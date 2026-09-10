@@ -48,17 +48,19 @@ header p {
 	line-height: 1.6;
 }
 
-/* Arrange the milestones in a horizontal, scrollable timeline. */
+/* Arrange the milestones on alternating sides of a horizontal timeline. */
 section {
 	position: relative;
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 24px;
-	max-width: 100%;
+	max-width: none;
 	padding: 70px 24px 90px;
 	overflow-x: auto;
+	scroll-padding-inline: 24px;
+	scroll-snap-type: x mandatory;
+	overscroll-behavior-x: contain;
 	background-color: #e8f4fa;
-	scroll-behavior: smooth;
 }
 
 section::before {
@@ -81,6 +83,7 @@ section > div {
 	background-color: #ffffff;
 	border-top: 6px solid #00c7fd;
 	box-shadow: 0 4px 12px rgba(0, 30, 60, 0.15);
+	scroll-snap-align: start;
 	transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -89,12 +92,12 @@ section > div:hover {
 	box-shadow: 0 10px 20px rgba(0, 30, 60, 0.2);
 }
 
-section > div:nth-child(even) {
-	align-self: flex-end;
+section > div:nth-child(odd) {
+	align-self: flex-start;
 }
 
-section > div:nth-child(even):hover {
-	transform: translateY(8px);
+section > div:nth-child(even) {
+	align-self: flex-end;
 }
 
 section h2 {
@@ -150,12 +153,12 @@ body > p {
 	}
 
 	section {
-		display: flex;
 		align-items: stretch;
 		flex-direction: column;
 		gap: 0;
 		padding: 48px 20px 24px;
 		overflow-x: visible;
+		scroll-snap-type: none;
 	}
 
 	section::before {
@@ -172,17 +175,12 @@ body > p {
 		padding: 24px;
 		flex-basis: auto;
 		min-height: 0;
+		align-self: auto;
 		border-top: 0;
 		border-left: 6px solid #00c7fd;
 	}
 
 	section > div:hover {
-		transform: translateX(6px);
-	}
-
-	section > div:nth-child(even),
-	section > div:nth-child(even):hover {
-		align-self: auto;
 		transform: translateX(6px);
 	}
 }
