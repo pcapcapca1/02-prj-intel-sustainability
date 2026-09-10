@@ -48,43 +48,44 @@ header p {
 	line-height: 1.6;
 }
 
-/* Place the timeline cards on alternating sides of a central line. */
+/* Arrange the milestones in a horizontal, scrollable timeline. */
 section {
 	position: relative;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 70px 24px;
+	display: flex;
+	gap: 24px;
+	max-width: 100%;
+	padding: 70px 24px 90px;
+	overflow-x: auto;
+	background-color: #e8f4fa;
+	scroll-behavior: smooth;
 }
 
 section::before {
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 50%;
-	width: 4px;
+	top: 50%;
+	right: 24px;
+	left: 24px;
+	height: 4px;
 	content: "";
 	background-color: #0068b5;
 }
 
 section > div {
 	position: relative;
+	z-index: 1;
 	box-sizing: border-box;
-	width: 44%;
-	margin-bottom: 48px;
+	flex: 0 0 260px;
+	min-height: 290px;
 	padding: 24px;
 	background-color: #ffffff;
-	border-left: 6px solid #00c7fd;
+	border-top: 6px solid #00c7fd;
 	box-shadow: 0 4px 12px rgba(0, 30, 60, 0.15);
+	transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-section > div:nth-child(odd) {
-	margin-right: auto;
-}
-
-section > div:nth-child(even) {
-	margin-left: auto;
-	border-right: 6px solid #00c7fd;
-	border-left: 0;
+section > div:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 10px 20px rgba(0, 30, 60, 0.2);
 }
 
 section h2 {
@@ -100,7 +101,18 @@ section h3 {
 }
 
 section p {
+	max-height: 0;
+	margin: 0;
+	overflow: hidden;
+	opacity: 0;
 	line-height: 1.6;
+	transition: max-height 180ms ease, opacity 180ms ease, margin 180ms ease;
+}
+
+section > div:hover p {
+	max-height: 220px;
+	margin-top: 14px;
+	opacity: 1;
 }
 
 body > p {
@@ -129,18 +141,32 @@ body > p {
 	}
 
 	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
 		padding: 48px 20px 24px;
+		overflow-x: visible;
 	}
 
 	section::before {
+		top: 0;
+		bottom: 0;
 		left: 10px;
+		width: 4px;
+		height: auto;
 	}
 
-	section > div,
-	section > div:nth-child(even) {
+	section > div {
 		width: calc(100% - 28px);
 		margin: 0 0 32px 28px;
-		border-right: 0;
+		padding: 24px;
+		flex-basis: auto;
+		min-height: 0;
+		border-top: 0;
 		border-left: 6px solid #00c7fd;
+	}
+
+	section > div:hover {
+		transform: translateX(6px);
 	}
 }
