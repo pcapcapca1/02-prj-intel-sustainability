@@ -52,6 +52,7 @@ header p {
 section {
 	position: relative;
 	display: flex;
+	align-items: flex-start;
 	gap: 24px;
 	max-width: 100%;
 	padding: 70px 24px 90px;
@@ -86,6 +87,14 @@ section > div {
 section > div:hover {
 	transform: translateY(-8px);
 	box-shadow: 0 10px 20px rgba(0, 30, 60, 0.2);
+}
+
+section > div:nth-child(even) {
+	align-self: flex-end;
+}
+
+section > div:nth-child(even):hover {
+	transform: translateY(8px);
 }
 
 section h2 {
@@ -142,6 +151,7 @@ body > p {
 
 	section {
 		display: flex;
+		align-items: stretch;
 		flex-direction: column;
 		gap: 0;
 		padding: 48px 20px 24px;
@@ -167,6 +177,12 @@ body > p {
 	}
 
 	section > div:hover {
+		transform: translateX(6px);
+	}
+
+	section > div:nth-child(even),
+	section > div:nth-child(even):hover {
+		align-self: auto;
 		transform: translateX(6px);
 	}
 }
