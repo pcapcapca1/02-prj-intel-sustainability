@@ -1,1 +1,70 @@
-/* Add your CSS here */
+/* Give the page a clean base so the hero can fill the screen. */
+body {
+	margin: 0;
+	color: #ffffff;
+	font-family: Arial, sans-serif;
+	background-color: #f4f8fb;
+}
+
+/* Use Intel-inspired blue tones and enough space for the hero content. */
+header {
+	box-sizing: border-box;
+	min-height: 520px;
+	padding: 56px 24px 72px;
+	text-align: center;
+	background: linear-gradient(135deg, #001e3c 0%, #0068b5 58%, #00c7fd 100%);
+}
+
+/* Keep the content readable instead of letting the paragraph become too wide. */
+header > div {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+/* Resize the supplied SVG logo while preserving its proportions. */
+header img {
+	display: block;
+	width: 180px;
+	height: auto;
+	margin: 0 auto 52px;
+}
+
+/* The pale blue accent makes the headline stand out against the dark blue. */
+h1 {
+	max-width: 700px;
+	margin: 0 auto 22px;
+	color: #d9f6ff;
+	font-size: 48px;
+	line-height: 1.1;
+	font-weight: 700;
+}
+
+/* Keep the subheading large enough to read while maintaining strong contrast. */
+header p {
+	max-width: 620px;
+	margin: 0 auto;
+	color: #ffffff;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+/* Reduce the hero scale on narrow screens so the text does not overflow. */
+@media (max-width: 600px) {
+	header {
+		min-height: 460px;
+		padding: 40px 20px 56px;
+	}
+
+	header img {
+		width: 145px;
+		margin-bottom: 38px;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	header p {
+		font-size: 17px;
+	}
+}
