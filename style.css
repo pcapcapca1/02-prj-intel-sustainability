@@ -48,6 +48,66 @@ header p {
 	line-height: 1.6;
 }
 
+/* Place the timeline cards on alternating sides of a central line. */
+section {
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 70px 24px;
+}
+
+section::before {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 4px;
+	content: "";
+	background-color: #0068b5;
+}
+
+section > div {
+	position: relative;
+	box-sizing: border-box;
+	width: 44%;
+	margin-bottom: 48px;
+	padding: 24px;
+	background-color: #ffffff;
+	border-left: 6px solid #00c7fd;
+	box-shadow: 0 4px 12px rgba(0, 30, 60, 0.15);
+}
+
+section > div:nth-child(odd) {
+	margin-right: auto;
+}
+
+section > div:nth-child(even) {
+	margin-left: auto;
+	border-right: 6px solid #00c7fd;
+	border-left: 0;
+}
+
+section h2 {
+	margin: 0 0 8px;
+	color: #0068b5;
+	font-size: 32px;
+}
+
+section h3 {
+	margin: 0 0 14px;
+	color: #001e3c;
+	font-size: 22px;
+}
+
+section p {
+	line-height: 1.6;
+}
+
+body > p {
+	padding: 0 20px 32px;
+	text-align: center;
+}
+
 /* Reduce the hero scale on narrow screens so the text does not overflow. */
 @media (max-width: 600px) {
 	header {
@@ -66,5 +126,21 @@ header p {
 
 	header p {
 		font-size: 17px;
+	}
+
+	section {
+		padding: 48px 20px 24px;
+	}
+
+	section::before {
+		left: 10px;
+	}
+
+	section > div,
+	section > div:nth-child(even) {
+		width: calc(100% - 28px);
+		margin: 0 0 32px 28px;
+		border-right: 0;
+		border-left: 6px solid #00c7fd;
 	}
 }
