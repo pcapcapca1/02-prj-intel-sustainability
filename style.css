@@ -1,7 +1,7 @@
 /* Give the page a clean base so the hero can fill the screen. */
 body {
 	margin: 0;
-	color: #ffffff;
+	color: #000000;
 	font-family: Arial, sans-serif;
 	background-color: #f4f8fb;
 }
