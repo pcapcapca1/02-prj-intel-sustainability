@@ -55,7 +55,7 @@ section {
 	align-items: center;
 	gap: 24px;
 	max-width: none;
-	padding: 70px 24px 90px;
+	padding: 70px 24px 180px;
 	overflow-x: auto;
 	scroll-padding-inline: 24px;
 	scroll-snap-type: x mandatory;
@@ -130,7 +130,7 @@ section p {
 }
 
 section > div:hover p {
-	max-height: 220px;
+	max-height: 300px;
 	margin-top: 14px;
 	opacity: 1;
 }
